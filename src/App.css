@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background: #F6F6F5;
+    overflow-x: hidden;
+    width: 100%;
+    font-family: "sans-serif", 'Montserrat';
+}
+
+:root{
+    --yellow: #ffc404;
+    --green: #009471;
+}
