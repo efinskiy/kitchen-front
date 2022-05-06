@@ -41,8 +41,8 @@ export function Structure(props){
     ) : kitchenStatus=='available' ? (
         <div>
             <Header/>
-            <Popup state={[popupState, setPopupState]}/>
-            <Offers setBasket={setBasket} popup={[popupState, setPopupState]}/>
+            <Popup state={[popupState, setPopupState]} basket={[basket, setBasket]} />
+            <Offers popup={[popupState, setPopupState]}/>
             <Footer basket={basket}/>
         </div>
     ) : (

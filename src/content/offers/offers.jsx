@@ -4,7 +4,7 @@ import { getMenu } from "../../services/menu";
 import css from "./offers.module.css";
 
 export function Offers(props) {
-    const {setBasket, popup} = props
+    const {popup} = props
     const [offers, setOffers] = useState([]);
     useEffect(
         () => {
@@ -14,7 +14,7 @@ export function Offers(props) {
 
     return (
         <div className={css.style}>
-            {offers.map(item => <Offer key={item.id} data = {item} setBasket={setBasket} popup={popup}/> )}
+            {offers.map(item => <Offer key={item.id} data = {item} popup={popup}/> )}
         </div>
         )
 }

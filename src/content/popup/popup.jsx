@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 
 export function Popup(props){
-    const {state} = props;
+    const {basket, state} = props;
+    const [basketState, setBasket] = basket
     const [popup, setPopup] = state;
     const [quontity, setQuontity] = useState(1);
-    let display = css.display;
 
     useEffect(
         () => {
@@ -25,7 +25,10 @@ export function Popup(props){
                     <div className={css.buttons}>
                         <input type="button" value="-" id="minus" className={css.count} onClick={()=> {quontity-1>0 ? setQuontity(quontity-1) : alert("Нельзя добавить меньше одного.")} }/>
                         <input type="button" value="+" id="plus" className={css.count} onClick={()=> {
-                            quontity+1<=popup.product.balance ? setQuontity(quontity+1) : alert("Нельзя добавить больше остатка.")} 
+                                let curr = basketState.items.filter(p => p.itemid == popup.product.id);
+                                console.log(curr[0].amount);
+                                quontity+1<=popup.product.balance && curr[0].amount+(quontity+1)<= popup.product.balance ? setQuontity(quontity+1) : alert("Нельзя добавить больше остатка.");
+                            } 
                             }/>
                     </div>
                     <div className={classNames([css.add], [css.button])}>

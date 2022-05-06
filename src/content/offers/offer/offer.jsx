@@ -7,7 +7,7 @@ import { useState } from 'react';
 // {props.data.price}
 
 export function Offer(props) {
-    const {setBasket, popup, data} = props;
+    const {popup, data} = props;
     const [popupState, setPopupState] = popup;
     return (
         <div>  
