@@ -6,7 +6,7 @@ const getHeaders = {
     },
 }
 
-export function getKitchenStatus() {
-return fetch('api/v1/status', getHeaders)
+export async function getKitchenStatus() {
+return await fetch('api/v1/status', getHeaders)
     .then(data => data.json())
 }

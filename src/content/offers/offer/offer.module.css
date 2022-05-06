@@ -61,12 +61,20 @@
     bottom: 100px;
     width: 270px;
     height: 54px;
+    cursor: pointer;
 }
 
 .button_text{
     font-weight: 400;
     font-size: 18px;
     padding-top: 15px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+    height: 100%;
 }
 
 .shadow{
