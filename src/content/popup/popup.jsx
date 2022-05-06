@@ -26,8 +26,10 @@ export function Popup(props){
                         <input type="button" value="-" id="minus" className={css.count} onClick={()=> {quontity-1>0 ? setQuontity(quontity-1) : alert("Нельзя добавить меньше одного.")} }/>
                         <input type="button" value="+" id="plus" className={css.count} onClick={()=> {
                                 let curr = basketState.items.filter(p => p.itemid == popup.product.id);
-                                console.log(curr[0].amount);
-                                quontity+1<=popup.product.balance && curr[0].amount+(quontity+1)<= popup.product.balance ? setQuontity(quontity+1) : alert("Нельзя добавить больше остатка.");
+                                curr.length != 0 ?
+                                    quontity+1<=popup.product.balance && curr[0].amount+(quontity+1)<= popup.product.balance ? setQuontity(quontity+1) : alert("Нельзя добавить больше остатка.")
+                                                :
+                                    quontity+1<=popup.product.balance ? setQuontity(quontity+1) : alert("Нельзя добавить больше остатка.")                                
                             } 
                             }/>
                     </div>
