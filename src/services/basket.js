@@ -10,10 +10,10 @@ export async function getBasket() {
 };
 
 
-export async function addToBasket(id) {
+export async function addToBasket(id, q) {
     let json = await fetch('api/v1/basket', {
         method: 'POST',
-        body: JSON.stringify({p: id, amount: 1}),
+        body: JSON.stringify({p: id, amount: q}),
         headers: {
             'Content-Type': 'application/json',
         },

@@ -1,8 +1,5 @@
 import css from './offer.module.css'
 import './offer.module.css'
-import { addToBasket, getBasket } from '../../../services/basket';
-import { Popup } from '../../popup/popup';
-import { useState } from 'react';
 // {props.data.name}
 // {props.data.price}
 
@@ -32,5 +29,3 @@ export function Offer(props) {
         </div>
     );
 }
-
-// ()=> {addToBasket(props.data.id).then(getBasket().then(basket => setBasket(basket)))}
