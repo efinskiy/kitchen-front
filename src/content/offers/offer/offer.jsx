@@ -7,23 +7,23 @@ import { useState } from 'react';
 // {props.data.price}
 
 export function Offer(props) {
-    const {setBasket, popup} = props;
+    const {setBasket, popup, data} = props;
     const [popupState, setPopupState] = popup;
     return (
         <div>  
             <div className={css.card}>
                 <div className={css.preview}>
-                    <img src={props.data.img} alt="Product picture" className={css.img}/>
+                    <img src={data.img} alt="Product picture" className={css.img}/>
                     <div className={css.info}>
                         <div className={css.block}>
 
-                            <p className={css.p_name}>{props.data.name}</p>
-                            <p className={css.p_weight}>{props.data.weight} г.</p>
+                            <p className={css.p_name}>{data.name}</p>
+                            <p className={css.p_weight}>{data.weight} г.</p>
 
                         </div>
                     </div>
                     <div className={css.button}>
-                        <p className={css.button_text} onClick={()=>setPopupState(1)}>Заказать за {props.data.price} ₽</p>
+                        <p className={css.button_text} onClick={() => setPopupState({state: 1, product: data})}>Заказать за {data.price} ₽</p>
                     </div>
                     <div className={css.shadow}></div>
                 </div>

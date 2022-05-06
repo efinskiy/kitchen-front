@@ -11,7 +11,7 @@ export function Structure(props){
     const [basket, setBasket] = useState([])
     const [kitchenStatus, setKitchenStatus] = useState([])
     const [loadingStatus, setLoadingStatus] = useState(0)
-    const [popupState, setPopupState] = useState(0)
+    const [popupState, setPopupState] = useState({state: 0, product: {title: null, id: null, price: null, balance: null}})
 
     useEffect(
         () => {
@@ -41,11 +41,7 @@ export function Structure(props){
     ) : kitchenStatus=='available' ? (
         <div>
             <Header/>
-            {
-                popupState===1 ?
-                <Popup state={[popupState, setPopupState]}/>
-                : false
-            }
+            <Popup state={[popupState, setPopupState]}/>
             <Offers setBasket={setBasket} popup={[popupState, setPopupState]}/>
             <Footer basket={basket}/>
         </div>
