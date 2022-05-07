@@ -8,8 +8,18 @@ const Basket = (props) => {
 
     return (
         <div className={css.order}>
-            <h2>Заказ</h2>
-            {basketState.items.map(item => <BasketElement key={item.itemid} element = {item}/> )}
+            <h2 className={css.header}>Корзина</h2>
+            {
+                basketState.items.length === 0 ? <p>Корзина пуста.</p>
+                : basketState.items.map(item => <BasketElement key={item.itemid} element = {item} basket={[basketState, setBasketState]}/> )
+            }
+            
+            <div>
+                <p>Метод оплаты: <span>Наличные</span></p>
+            </div>
+            <div>
+                <button>Создать заказ</button>
+            </div>
         </div>
     );
 }

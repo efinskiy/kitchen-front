@@ -2,13 +2,15 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    text-decoration-color: black;
+    -webkit-text-fill-color: black;
 }
 
 body{
     background: #F6F6F5;
     overflow-x: hidden;
     width: 100%;
-    font-family: "sans-serif", 'Montserrat';
+    font-family: 'Montserrat', "sans-serif";
 }
 
 :root{

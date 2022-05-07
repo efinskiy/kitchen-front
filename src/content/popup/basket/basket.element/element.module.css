@@ -12,8 +12,9 @@
 
 .imgContainer{
     background-repeat: no-repeat;
-    background-size: 100% 100%;
     background-position: center;
+    background-size: cover;
+    border-radius: 25%;
     height: 100px;
     width: 100px;
 }
@@ -23,12 +24,18 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    padding-left: 12px;
 }
+
 .info_top{
     display: flex;
     flex-direction: row;
     width: 100%;
 }
+.summ{
+    margin-left: 5px;
+}
+
 .info_bottom{
     display: flex;
     flex-direction: row;
@@ -38,6 +45,12 @@
 .amountButton{
     width: 50px;
     height: 50px;
+    border-radius: 25%;
+    /* border:none; */
+    background-color: var(--yellow);
+    font-size: 30px;
+    font-weight: 100;
+    border-style: none;
 }
 
 .currAmount{

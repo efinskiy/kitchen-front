@@ -11,17 +11,52 @@ export async function getBasket() {
 
 
 export async function addToBasket(id, q) {
-    let json = await fetch('api/v1/basket', {
+    const request = await fetch('api/v1/basket', {
         method: 'POST',
         body: JSON.stringify({p: id, amount: q}),
         headers: {
             'Content-Type': 'application/json',
         },
-    }).then(data=> data.json())
+    });
+
+    const json = await request.json();
+
     if (json.response == 201){
         alert("Недостаточно товара")
     }
     return json
 };
 
+export async function removeItem(id){
+    const request = await fetch('api/v1/basket', {
+        method: 'PATCH',
+        body: JSON.stringify({
+            p: id
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+
+    const json = await request.json();
+
+    return json
+
+}
+
+export async function getBalance(id){
+    const request = await fetch('api/v1/basket/amount', {
+        method: 'POST',
+        body: JSON.stringify({
+            p: id
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+
+    const json = await request.json();
+
+    return json
+}
 
