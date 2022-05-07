@@ -32,7 +32,7 @@
 }
 
 .content {
-    width: 90%;
+    width: 100%;
 }
 
 .header {
@@ -40,7 +40,7 @@
     color: #5E5E5E;
     display: flex;
     padding: 2px 20px;
-    margin-left: 10%;
+    /* margin-left: 10%; */
 }
 
 .title {
@@ -55,7 +55,6 @@
     justify-self: center;
     padding: 20px 0;
     color: #5e5e5e;
-    margin-left: 10%;
     background-color: #ffffff;
     border-bottom-right-radius: 20px 20px;
     border-bottom-left-radius: 20px 20px;

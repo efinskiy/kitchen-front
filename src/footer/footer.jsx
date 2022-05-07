@@ -6,8 +6,9 @@ import { useState } from "react";
 
 
 export function Footer(props) {
-    const [fswitch, setfSwitch] = useState({menu: true, cart: false, history: false})
-    const {basket} = props
+    const {basket, switchprops} = props
+    const [fswitch, setfSwitch] = switchprops
+
     return (
         <footer className={css.footer}>
             <ul className={css.ul}>

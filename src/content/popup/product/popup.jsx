@@ -1,7 +1,7 @@
-import css from "./popup.module.css";
+import css from "../popup.module.css";
 import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
-import { addToBasket, getBasket } from "../../services/basket";
+import { addToBasket, getBasket } from "../../../services/basket";
 
 export function Popup(props){
     const {basket, state} = props;
@@ -37,8 +37,6 @@ export function Popup(props){
                     <div className={classNames([css.add], [css.button])}>
                         <p className={css.add_text} onClick={()=> {
                             addToBasket(popup.product.id, quontity)
-                            .then(getBasket()
-                            .then(basket => setBasket(basket)))
                             .then(setPopup({state: 0, product: {title: null, id: null, price: null, balance: null}}))}}>
                                 Добавить за {(quontity*popup.product.price).toFixed(2)}
                                 </p>

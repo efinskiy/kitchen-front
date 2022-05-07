@@ -1,10 +1,10 @@
 import { Footer } from "./footer/footer"
 import { Header } from "./header/header"
-import { Offers } from "./content/offers/offers";
-import { Popup } from "./content/popup/popup";
+import { Popup } from "./content/popup/product/popup";
 import { useEffect, useState } from "react";
 import { getBasket } from "./services/basket";
 import { getKitchenStatus } from "./services/settings";
+import Mainwrapper from "./content/mainwrapper/mainwrapper";
 
 
 export function Structure(props){ 
@@ -12,6 +12,8 @@ export function Structure(props){
     const [kitchenStatus, setKitchenStatus] = useState([])
     const [loadingStatus, setLoadingStatus] = useState(0)
     const [popupState, setPopupState] = useState({state: 0, product: {title: null, id: null, price: null, balance: null}})
+    const [fswitch, setfSwitch] = useState({menu: true, cart: false, history: false})
+
 
     useEffect(
         () => {
@@ -30,7 +32,14 @@ export function Structure(props){
             if (kitchenStatus=='available'){
                 getBasket().then(basket => setBasket(basket))
             }
-        }, [kitchenStatus]
+        }, []
+    );
+    useEffect(
+        () => {
+            if (popupState.state==0){
+                getBasket().then(basket => setBasket(basket))
+            }
+        }, [popupState]
     );
 
     return (
@@ -42,12 +51,14 @@ export function Structure(props){
         <div>
             <Header/>
             <Popup state={[popupState, setPopupState]} basket={[basket, setBasket]} />
-            <Offers popup={[popupState, setPopupState]}/>
-            <Footer basket={basket}/>
+            <Mainwrapper popup={[popupState, setPopupState]} fswitch={fswitch} basket={[basket, setBasket]}/>
+            <Footer basket={basket} switchprops={[fswitch, setfSwitch]}/>
         </div>
-    ) : (
+    ) : kitchenStatus=='not_available' ? (
         <div>
             <p>Kitchen not available</p>
         </div>
-    ))
+    ) : <div>
+            <p>Loading...</p>
+        </div>)
 };
