@@ -10,13 +10,18 @@
     height: 100px;
 }
 
+.imgWrap{
+    height: 100px;
+    width: 100px;
+}
+
 .imgContainer{
+    width: 100px;
+    height: 100px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     border-radius: 25%;
-    height: 100px;
-    width: 100px;
 }
 
 .info{
@@ -25,12 +30,14 @@
     align-items: flex-start;
     justify-content: space-between;
     padding-left: 12px;
+    width: calc(100% - 100px);
 }
 
 .info_top{
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: space-between;
 }
 .summ{
     margin-left: 5px;

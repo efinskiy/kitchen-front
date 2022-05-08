@@ -1,0 +1,121 @@
+* {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+  
+*:focus {
+    outline: none;
+}
+
+.paymentType{
+    /* background-color: aqua; */
+}
+.paymentTypeSwitch{
+    position: relative;
+    /* top: 50%; */
+    width: 160px;
+    height: 36px;
+    /* margin: -20px auto 0 auto; */
+    overflow: hidden;
+}
+
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.paymentTypeSwitch,
+.layer{
+    border-radius: 100px;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.layer {
+    width: 100%;
+    background-color: #cfcfcf;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+
+/* Button 1 */
+.paymentTypeSwitch .knobs:before,
+.paymentTypeSwitch .knobs:after,
+.paymentTypeSwitch .knobs span {
+    position: absolute;
+    width: 72px;
+    height: 18px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    border-radius: 2px;
+    transition: 0.3s ease all;
+}
+.paymentTypeSwitch .knobs span{
+    top: 4px;
+}
+
+.paymentTypeSwitch .knobs:before {
+    content: "";
+    left: 0px;
+    border-radius: 25% 0% 0% 25%;
+    background-color: var(--yellow);
+}
+
+.paymentTypeSwitch .knobs:after {
+    content: "Карта";
+    top: 4px;
+    right: 0%;
+    color: #4e4e4e;
+}
+
+.paymentTypeSwitch .knobs span {
+    display: inline-block;
+    width: 50%;
+    left: 0px;
+    color: #fff;
+    z-index: 1;
+    transition: 0.3s ease all;
+}
+
+.paymentTypeSwitch .checkbox:checked + .knobs span {
+    color: #4e4e4e;
+}
+
+.paymentTypeSwitch .checkbox:checked + .knobs:before {
+    left: 50%;
+    border-radius: 0% 25% 25% 0%;
+    background-color: var(--yellow);
+    transition: 0.3s ease all;
+}
+
+
+.paymentTypeSwitch .checkbox:checked + .knobs:after {
+    display: block;
+    color: rgba(255, 255, 255, 0.233);
+    right: 0;
+}
+
+.paymentTypeSwitch .checkbox:checked ~ .layer {
+    background-color: #cfcfcf;
+}

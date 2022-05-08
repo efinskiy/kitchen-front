@@ -4,6 +4,7 @@
     list-style: none;
     text-decoration-color: black;
     -webkit-text-fill-color: black;
+    touch-action: pan-y, pan-x;
 }
 
 body{

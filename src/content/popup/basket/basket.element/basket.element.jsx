@@ -24,8 +24,9 @@ const BasketElement = (props) => {
         amountState !== 0 ? 
         <div className={css.el}>
             <div className={css.el_wrap}>
-                {/* <img src={element.img} alt="" className={css.img}/> */}
-                <div style={{backgroundImage: 'url(img)'.replace('img', element.img)}} className={classNames({[css.imgContainer]: true})}></div>
+                <div className={css.imgWrap}>
+                    <div style={{backgroundImage: 'url(img)'.replace('img', element.img)}} className={classNames({[css.imgContainer]: true})}></div>
+                </div>
                 <div className={css.info}>
                     <div className={css.info_top}>
                         <p className={css.name}>{element.name}</p>
