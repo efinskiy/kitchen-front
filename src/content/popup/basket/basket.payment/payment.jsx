@@ -12,7 +12,7 @@ const Payment = (props) => {
             <div className={css.paymentTypeSwitch}>
                 <input type="checkbox" checked={paymentType} onChange={(event) => {setPaymentType(event.target.checked)}} className={css.checkbox} />
                 <div className={css.knobs}>
-                    <span>Наличные</span>
+                    <span>Наличными</span>
                 </div>
                 <div className={css.layer}></div>
             </div>

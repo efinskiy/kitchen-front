@@ -2,10 +2,13 @@ import React from 'react';
 import BasketElement from './basket.element/basket.element';
 import Payment from './basket.payment/payment';
 import css from './basket.module.css';
+import { getBasket } from '../../../services/basket';
+import { createOrder } from '../../../services/order';
 import { useState } from 'react';
 
 const Basket = (props) => {
-    const {basket} = props;
+    const {basket, fswitchProp} = props;
+    const [fswitch, setfSwitch] = fswitchProp;
     const [basketState, setBasketState] = basket;
     const [paymentType, setPaymentType] = useState(false);
 
@@ -13,17 +16,35 @@ const Basket = (props) => {
         <div className={css.order}>
             <h2 className={css.header}>Корзина</h2>
             {
-                basketState.items.length === 0 ? <p>Корзина пуста.</p>
-                : basketState.items.map(item => <BasketElement key={item.itemid} element = {item} basket={[basketState, setBasketState]}/> )
+                basketState.items.length === 0 ? <p>Пока что, тут пусто :(</p>
+                : (
+                    <div className="order_content">
+                        {basketState.items.map(item => <BasketElement key={item.itemid} element = {item} basket={[basketState, setBasketState]}/> )}
+                        <div className={css.total}>
+                            <p>Сумма: {basketState.total}₽</p>
+                        </div>
+                        <hr className={css.hr} />
+
+                        <div className={css.paymentSelect}>
+                            <p>Способ оплаты: </p>
+                            <Payment payment={[paymentType, setPaymentType]}/>
+                        </div>
+                        <hr className={css.hr} />
+                        <div>
+                            <div className={css.button}
+                            onClick={
+                                () => createOrder(paymentType).then(
+                                    () => getBasket().then(basket => setBasketState(basket))
+                                ).then(
+                                    () => setfSwitch({menu: false, cart: false, history: true}))
+                            }
+                            >
+                                <p className={css.button_text}>Создать заказ</p>
+                            </div>
+                        </div>
+                    </div>
+                    )
             }
-            
-            <div className={css.paymentSelect}>
-                <p>Способ оплаты: </p>
-                <Payment payment={[paymentType, setPaymentType]}/>
-            </div>
-            <div>
-                <button>Создать заказ</button>
-            </div>
         </div>
     );
 }

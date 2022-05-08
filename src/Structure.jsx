@@ -36,8 +36,9 @@ export function Structure(props){
     );
     useEffect(
         () => {
-            if (popupState.state==0){
+            if (popupState.state == 0){
                 getBasket().then(basket => setBasket(basket))
+
             }
         }, [popupState]
     );
@@ -45,20 +46,20 @@ export function Structure(props){
     return (
     loadingStatus == 0 ? (
         <div>
-            <p>Loading...</p>
+            <p>Загрузка...</p>
         </div>
     ) : kitchenStatus=='available' ? (
         <div>
             <Header/>
             <Popup state={[popupState, setPopupState]} basket={[basket, setBasket]} />
-            <Mainwrapper popup={[popupState, setPopupState]} fswitch={fswitch} basket={[basket, setBasket]}/>
+            <Mainwrapper popup={[popupState, setPopupState]} fswitchProp={[fswitch, setfSwitch]} basket={[basket, setBasket]}/>
             <Footer basket={basket} switchprops={[fswitch, setfSwitch]}/>
         </div>
     ) : kitchenStatus=='not_available' ? (
         <div>
-            <p>Kitchen not available</p>
+            <p>В настоящий момент Столовая недоступна.</p>
         </div>
     ) : <div>
-            <p>Loading...</p>
+            <p>Загрузка...</p>
         </div>)
 };

@@ -83,7 +83,7 @@
 }
 
 .paymentTypeSwitch .knobs:after {
-    content: "Карта";
+    content: "Картой";
     top: 4px;
     right: 0%;
     color: #4e4e4e;
@@ -112,7 +112,7 @@
 
 .paymentTypeSwitch .checkbox:checked + .knobs:after {
     display: block;
-    color: rgba(255, 255, 255, 0.233);
+    color: #fff;
     right: 0;
 }
 

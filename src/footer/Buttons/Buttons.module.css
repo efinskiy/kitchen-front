@@ -6,6 +6,10 @@
     margin: 6px auto;
     border: none;
 }
+
+.icon{
+    display: inline-block;
+}
 .cartButton{
     width: 79px;
     height: 79px;

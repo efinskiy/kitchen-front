@@ -1,9 +1,8 @@
+
 *{
     margin: 0;
     padding: 0;
     list-style: none;
-    text-decoration-color: black;
-    -webkit-text-fill-color: black;
     touch-action: pan-y, pan-x;
 }
 
@@ -17,4 +16,5 @@ body{
 :root{
     --yellow: #ffc404;
     --green: #009471;
+    --white: #fff;
 }
