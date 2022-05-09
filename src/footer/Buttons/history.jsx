@@ -1,4 +1,3 @@
-import { svg } from "./historySvg"
 import css from './Buttons.module.css';
 import classNames from 'classnames';
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";

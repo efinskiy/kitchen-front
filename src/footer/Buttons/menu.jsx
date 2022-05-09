@@ -1,4 +1,3 @@
-import { svg } from './menuSvg.jsx';
 import css from './Buttons.module.css';
 import classNames from 'classnames';
 import { faList } from "@fortawesome/free-solid-svg-icons";
