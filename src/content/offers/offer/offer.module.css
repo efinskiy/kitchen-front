@@ -22,7 +22,7 @@
 
 .info{
     width: 318px;
-    height: 132px;
+    height: 156px;
     background-color: #fff;
     margin: 0 auto;
     border-radius: 20px;
@@ -34,8 +34,9 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 24px;
+    align-items: center;
 }
 
 .p_name{
@@ -44,12 +45,15 @@
     font-size: 17px;
     line-height: 22px;
     color: #141414;
+    margin-left: 24px;
 }
 
 .p_weight{
     color: #5e5e5e;
     font-size: 16px;
     line-height: 20px;
+    margin-right: 24px;
+    width: 54px;
 }
 
 .button{
@@ -62,6 +66,7 @@
     width: 270px;
     height: 54px;
     cursor: pointer;
+    /* margin-top: 24px; */
 }
 
 .button_text{
