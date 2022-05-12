@@ -56,10 +56,11 @@
     width: 100%;
     height: 32px;
     cursor: pointer;
+    margin: 0 8px 0 8px;
 }
 
 .btnCancel{
-    background-color: #c0392b;
+    background-color: #E8043D;
     /* margin: 0 auto; */
     text-align: center;
     border-radius: 16px;
@@ -67,10 +68,11 @@
     width: 100%;
     height: 32px;
     cursor: pointer;
+    margin: 0 8px 0 8px;
 }
 
 .button_text{
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     padding-top: 6px;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -82,26 +84,51 @@
     height: 100%;
 }
 
+.totalBlock{
+    display: flex;
+}
+
+.receiptBlock{
+    padding-left: 14px;
+}
+
+.info_pin{
+    padding-top: 14px;
+}
+
+.receiptLink{
+    text-decoration-color: black;
+    -webkit-text-fill-color: black;
+    font-weight: 500;
+    /* text-decoration: none; */
+    text-decoration: underline dashed black 1px;
+}
+
 .total{
     font-weight: 500;
 }
 
 .statusWaitPayment{
     color: #d35400;
+    font-weight: 500;
 }
 
 .statusWaitConfirmation{
-    color: #f1c40f;
+    color: var(--yellow);
+    font-weight: 500;
 }
 
 .statusReady{
-    color: #2ecc71;
+    color: #5AE004;
+    font-weight: 500;
 }
 
 .statusFinal{
-    color: #16a085;
+    color: #5AE004;
+    font-weight: 500;
 }
 
 .statusCanceled{
-    color: #e74c3c;
+    color: #E8043D;
+    font-weight: 500;
 }

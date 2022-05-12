@@ -7,6 +7,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Order = (props) => {
     const {order} = props;
 
+    function statusSwitch(status){
+        switch (status) {
+            case 0:
+                return <span className={css.statusWaitPayment}>Ожидает оплаты</span>
+            case 1:
+                return <span className={css.statusWaitConfirmation}>Подтверждение</span>
+            case 2:
+                return <span className={css.statusReady}>Ожидает вручения</span>
+            case 3:
+                return <span className={css.statusFinal}>Выдан</span>
+            case 4:
+                return <span className={css.statusCanceled}>Отменен</span>
+        }
+    }
+
     return (
         <div className={css.order}>
             <div className={css.order_info}>
@@ -16,25 +31,13 @@ const Order = (props) => {
                         Заказ №{order.id}
                     </h3>
                     <span className={css.order_status}>
-                        {
-                        order.status === 0 
-                            ? <span className={css.statusWaitPayment}>Ожидает оплаты</span>
-                            : order.status === 1 
-                                ? <span className={css.statusWaitConfirmation}>Подтверждение</span>
-                                : order.status === 2 
-                                    ? <span className={css.statusReady}>Ожидает вручения</span>
-                                    : order.status === 3
-                                        ? <span className={css.statusFinal}>Выдан</span>
-                                        : order.status === 4
-                                            ? <span className={css.statusCanceled}>Отменен</span>
-                                            : false
-                        }
+                        {statusSwitch(order.status)}
                     </span>
                     </div>
                     <span className={css.info_date}>{order.date}</span>
                     {
                         order.status === 2 
-                                        ? <span>PIN: {order.confirmation_code}</span>
+                                        ? <span className={css.info_pin}>PIN: {order.confirmation_code}</span>
                                         : false
                     }
                 </div>
@@ -43,7 +46,17 @@ const Order = (props) => {
                 {order.items.map(item => <Product key={item.id} item={item}/>)}
             </div>
             <p>Способ оплаты: {order.payment_type === 0 ? <span className={css.total}>Наличными <FontAwesomeIcon icon={faMoneyBill1Wave}/></span> : <span className={css.total}>Картой <FontAwesomeIcon icon={faCreditCard}/></span>}</p>
+            
+            <div className={css.totalBlock}>
             <p>Сумма: <span className={css.total}>{order.ord_price.toFixed(2)}₽</span></p>
+            <span className={css.receiptBlock}>
+                {
+                    order.status !== 0 && order.is_payed === true ? <a href="#" className={css.receiptLink}> Чек </a> : false
+                }
+                
+            </span>
+
+            </div>
             <div className={css.controlButtons}>
                 {
                     order.status !== 4 && order.status !== 3

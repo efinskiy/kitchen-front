@@ -25,7 +25,7 @@ const BasketElement = (props) => {
         <div className={css.el}>
             <div className={css.el_wrap}>
                 <div className={css.imgWrap}>
-                    <div style={{backgroundImage: 'url(img)'.replace('img', element.img)}} className={classNames({[css.imgContainer]: true})}></div>
+                    <div style={{backgroundImage: "url(%img%)".replace("%img%", "/api/v1/menu/img?p="+element.itemid)}} className={classNames({[css.imgContainer]: true})}></div>
                 </div>
                 <div className={css.info}>
                     <div className={css.info_top}>
