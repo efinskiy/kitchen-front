@@ -3,9 +3,10 @@ import css from './order.module.css';
 import Product from './product/product';
 import { faMoneyBill1Wave, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { cancelOrder, getOrders, getPayLink } from '../../../../services/order';
 
 const Order = (props) => {
-    const {order} = props;
+    const {order, setOrders} = props;
 
     function statusSwitch(status){
         switch (status) {
@@ -51,7 +52,7 @@ const Order = (props) => {
             <p>Сумма: <span className={css.total}>{order.ord_price.toFixed(2)}₽</span></p>
             <span className={css.receiptBlock}>
                 {
-                    order.status !== 0 && order.is_payed === true ? <a href="#" className={css.receiptLink}> Чек </a> : false
+                    order.status !== 0 && order.is_payed === true && order.payment_type === 1 ? <a href="#" className={css.receiptLink}> Чек </a> : false
                 }
                 
             </span>
@@ -60,12 +61,13 @@ const Order = (props) => {
             <div className={css.controlButtons}>
                 {
                     order.status !== 4 && order.status !== 3
-                                                        ? <div className={css.btnCancel}> <p className={css.button_text}>Отменить</p> </div>
+                                                        ? <div className={css.btnCancel}> <p className={css.button_text} onClick={() => {cancelOrder(order.id).then(getOrders().then(json => setOrders(json)))}}>Отменить</p> </div>
                                                         : false
                 }
                 {
+                    
                     order.is_payed === false && order.status < 1  
-                                        ? <div className={css.btnPay}> <p className={css.button_text}>Оплатить</p> </div>
+                                        ? <div className={css.btnPay}> <p className={css.button_text} onClick={()=> {getPayLink(order.id).then(json => {window.open(json.url, '_blank')})}}>Оплатить</p> </div>
                                         : false
                 }
                 

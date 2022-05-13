@@ -7,7 +7,7 @@ const getHeaders = {
 }
 
 export async function getKitchenStatus() {
-    const response = await fetch('api/v1/status', getHeaders);
+    let response = await fetch('api/v1/status', getHeaders);
     const status = await response.json();
 
     return status;

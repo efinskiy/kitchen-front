@@ -1,5 +1,5 @@
 export async function createOrder(ptype){
-    const request = await fetch('api/v1/order', {
+    let request = await fetch('api/v1/order', {
         method: 'POST',
         body: JSON.stringify({
             ptype: ptype
@@ -21,7 +21,7 @@ export async function createOrder(ptype){
 }
 
 export async function getOrders(){
-    const request = await fetch('api/v1/orders', {
+    let request = await fetch('api/v1/orders', {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -30,4 +30,29 @@ export async function getOrders(){
     const json = await request.json()
 
     return json;
+}
+
+export async function getPayLink(id){
+    let request = await fetch('api/v1/order/pay?'+ new URLSearchParams({
+        oid: id
+    }));
+
+    const json = await request.json()
+
+    return json
+}
+
+export async function cancelOrder(id){
+    let request = await fetch('api/v1/order/cancel', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            oid: id
+        })    
+    })
+    const json = await request.json()
+
+    return json
 }

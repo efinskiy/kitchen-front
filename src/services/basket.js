@@ -11,7 +11,7 @@ export async function getBasket() {
 
 
 export async function addToBasket(id, q) {
-    const request = await fetch('api/v1/basket', {
+    let request = await fetch('api/v1/basket', {
         method: 'POST',
         body: JSON.stringify({p: id, amount: q}),
         headers: {
@@ -28,7 +28,7 @@ export async function addToBasket(id, q) {
 };
 
 export async function removeItem(id){
-    const request = await fetch('api/v1/basket', {
+    let request = await fetch('api/v1/basket', {
         method: 'PATCH',
         body: JSON.stringify({
             p: id
@@ -45,7 +45,7 @@ export async function removeItem(id){
 }
 
 export async function getBalance(id){
-    const request = await fetch('api/v1/basket/amount', {
+    let request = await fetch('api/v1/basket/amount', {
         method: 'POST',
         body: JSON.stringify({
             p: id

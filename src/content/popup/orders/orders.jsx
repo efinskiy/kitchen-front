@@ -23,7 +23,7 @@ const Orders = (props) => {
                 ordersState.orders.length === 0 ? 
                     <p>История заказов пуста</p>
                 : 
-                    ordersState.orders.map(order => <Order key={order.id} order={order}/>)
+                    ordersState.orders.map(order => <Order key={order.id} order={order} setOrders={setOrdersState}/>)
             }
             
         </div>
