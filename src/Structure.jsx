@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { getBasket } from "./services/basket";
 import { getKitchenStatus } from "./services/settings";
 import Mainwrapper from "./content/mainwrapper/mainwrapper";
+import Loader from "./content/loader/loader";
+import Closed from "./content/closed/closed";
 
 
 export function Structure(props){ 
@@ -46,7 +48,7 @@ export function Structure(props){
     return (
     loadingStatus == 0 ? (
         <div>
-            <p>Загрузка...</p>
+            <Loader/>
         </div>
     ) : kitchenStatus=='available' ? (
         <div>
@@ -56,10 +58,6 @@ export function Structure(props){
             <Footer basket={basket} switchprops={[fswitch, setfSwitch]}/>
         </div>
     ) : kitchenStatus=='not_available' ? (
-        <div>
-            <p>В настоящий момент Столовая недоступна.</p>
-        </div>
-    ) : <div>
-            <p>Загрузка...</p>
-        </div>)
+        <Closed/>
+    ) : <Loader/>)
 };

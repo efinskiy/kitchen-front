@@ -5,8 +5,10 @@ const getHeaders = {
     },
 }
 export async function getBasket() {
-    return await fetch('api/v1/basket', getHeaders)
-      .then(data => data.json())
+    let request = await fetch('api/v1/basket', getHeaders)
+
+    let json = await request.json()
+    return json
 };
 
 

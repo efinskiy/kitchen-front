@@ -1,0 +1,20 @@
+.loader{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.loaderWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.loaderText{
+    text-align: center;
+    font-size: smaller;
+}

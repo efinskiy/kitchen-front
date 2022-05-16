@@ -34,9 +34,11 @@ const Basket = (props) => {
                             <div className={css.button}
                             onClick={
                                 () => createOrder(paymentType).then(
-                                    () => getBasket().then(basket => setBasketState(basket))
-                                ).then(
-                                    () => setfSwitch({menu: false, cart: false, history: true}))
+                                    json => 
+                                        json.response === 200 
+                                        ? getBasket().then(basket => setBasketState(basket)).then(() => setfSwitch({menu: false, cart: false, history: true}))
+                                        : false
+                                )
                             }
                             >
                                 <p className={css.button_text}>Создать заказ</p>

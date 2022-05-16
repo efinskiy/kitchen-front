@@ -13,9 +13,14 @@ export async function createOrder(ptype){
     if (json.response === 200){
         return json;
     }
+    else if (json.response === 202){
+        alert("Вы достигли лимита одновременных заказов. Пожалуйста, завершите предыдущие заказы перед оформлением нового.")
+        return json;
+    }
     else{
         alert("Что то пошло не так :(");
         console.log(json);
+        return json;
     }
 
 }
