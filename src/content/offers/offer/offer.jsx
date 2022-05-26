@@ -1,7 +1,5 @@
 import css from './offer.module.css'
 import './offer.module.css'
-// {props.data.name}
-// {props.data.price}
 
 export function Offer(props) {
     const {popup, data} = props;

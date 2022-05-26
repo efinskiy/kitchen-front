@@ -1,0 +1,11 @@
+.carousel{
+    white-space: nowrap;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel_wrapper{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
