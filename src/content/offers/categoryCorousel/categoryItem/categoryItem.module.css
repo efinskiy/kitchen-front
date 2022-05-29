@@ -11,7 +11,7 @@
 .itemWrapper{
     color: #919399;
     line-height: 20px;
-    border-radius: 18px;
+    /* border-radius: 18px; */
     margin-right: 0;
     padding: 8px 15px;
     white-space: nowrap;
@@ -20,4 +20,5 @@
 .active{
     background-color: #e3e4e6;
     color: #2e2e33;
+    border-radius: 18px;
 }

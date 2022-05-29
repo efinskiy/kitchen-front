@@ -1,4 +1,5 @@
 .carousel{
+    padding: 0 14px;
     white-space: nowrap;
     overflow: scroll;
     scroll-behavior: smooth;

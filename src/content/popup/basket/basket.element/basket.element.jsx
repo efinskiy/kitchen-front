@@ -37,7 +37,7 @@ const BasketElement = (props) => {
                         <p className={css.currAmount}>{amountState}</p>
                         <button className={css.amountButton} onClick={()=> {
                                 let curr = basketState.items.filter(p => p.itemid == element.itemid); 
-                                console.log(curr);                     
+                                // console.log(curr);                     
                                 amountState+1<=balance ? 
                                                         addToBasket(element.itemid, 1)
                                                                                     .then(json => (
