@@ -61,7 +61,14 @@
 }
 
 .buttons {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.quantity{
+    padding: 0 8px;
+    font-weight: 500;
 }
 
 .button{
@@ -105,8 +112,8 @@
 }
 
 .quontity {
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%;
+    margin: 0 auto; */
 }
 
 @keyframes toptodown {
@@ -192,4 +199,13 @@
 }
 .popup-body__history{
     margin-top: 15px;
+}
+
+.controlsWrapper{
+    display: flex;
+    /* width: 90%; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
 }

@@ -22,9 +22,11 @@ export function Popup(props){
                     <span className={css.close} onClick={()=>setPopup({state: 0, product: {title: null, id: null, price: null, balance: null}})}>&times;</span>
                 </div>
                 <div className={css.body}>
-                    <p className={css.quontity}>Желаемое количество {quontity}</p>
+                    <div className={css.controlsWrapper}>
+                    <p className={css.quontity}>Желаемое количество </p>
                     <div className={css.buttons}>
                         <input type="button" value="-" id="minus" className={css.count} onClick={()=> {quontity-1>0 ? setQuontity(quontity-1) : alert("Нельзя добавить меньше одного.")} }/>
+                        <span className={css.quantity}>{quontity}</span>
                         <input type="button" value="+" id="plus" className={css.count} onClick={()=> {
                                 let curr = basketState.items.filter(p => p.itemid == popup.product.id);
                                 curr.length != 0 ?
@@ -34,11 +36,12 @@ export function Popup(props){
                             } 
                             }/>
                     </div>
+                    </div>
                     <div className={classNames([css.add], [css.button])}>
                         <p className={css.add_text} onClick={()=> {
                             addToBasket(popup.product.id, quontity)
                             .then(setPopup({state: 0, product: {title: null, id: null, price: null, balance: null}}))}}>
-                                Добавить за {(quontity*popup.product.price).toFixed(2)}
+                                Добавить за {(quontity*popup.product.price).toFixed(2)} ₽
                                 </p>
                     </div>
                 </div>
