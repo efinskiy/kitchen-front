@@ -18,7 +18,7 @@ export function Offer(props) {
                         </div>
                     </div>
                     <div className={css.button}>
-                        <p className={css.button_text} onClick={() => setPopupState({state: 1, product: data})}>Заказать за {data.price} ₽</p>
+                        <p className={css.button_text} onClick={() => setPopupState({state: 1, product: data})}>{data.price} ₽</p>
                     </div>
                     <div className={css.shadow}></div>
                 </div>
