@@ -8,7 +8,7 @@ export function Offer(props) {
         <div>  
             <div className={css.card}>
                 <div className={css.preview}>
-                    <img src={"/api/v1/menu/img?p="+data.id} alt="Product picture" className={css.img}/>
+                    <img src={"/api/v1/files/"+data.img} alt="Product picture" className={css.img}/>
                     <div className={css.info}>
                         <div className={css.block}>
 
@@ -23,7 +23,6 @@ export function Offer(props) {
                     <div className={css.shadow}></div>
                 </div>
             </div>
-            
         </div>
     );
 }

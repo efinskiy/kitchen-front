@@ -12,15 +12,21 @@ export function Footer(props) {
     return (
         <footer className={css.footer}>
             <ul className={css.ul}>
-                <li className={css.smallButtonli}>
-                    <Menu useState={setfSwitch} isActive={fswitch.menu}/>
-                </li>
+                <div className={css.buttonWrapper}>
+                    <li className={css.smallButtonli}>
+                        <Menu useState={setfSwitch} isActive={fswitch.menu}/>
+                    </li>
+                    <span className={css.buttonTitle}>Товары</span>
+                </div>
                 <li className={css.largeButtonli}>
                     <Cart useState={setfSwitch} isActive={fswitch.cart} basket={basket}/>
                 </li>
-                <li className={css.smallButtonli}>
-                    <History useState={setfSwitch} isActive={fswitch.history}/>
-                </li>
+                <div className={css.buttonWrapper}>
+                    <li className={css.smallButtonli}>
+                        <History useState={setfSwitch} isActive={fswitch.history}/>
+                    </li>
+                    <span className={css.buttonTitle}>Заказы</span>
+                </div>
             </ul>
         </footer>
     );

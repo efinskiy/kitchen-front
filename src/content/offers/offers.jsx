@@ -17,17 +17,19 @@ export function Offers(props) {
     const [offers, setOffers] = useState([]);
     const [categoryState, setCategoryState] = category;
     const [offersActivId, setOffersActivId] = useState(4);
-    
     useEffect(
         () => {
-            getMenu(offersActivId).then(menu => setOffers(menu.products))
+            getMenu(offersActivId).then((menu) => setOffers(menu.products))
         }, [categoryState]
     );
+    // useEffect
+
+
 
     return (
         <div className={css.style}>
             <Carousel category={[categoryState, setCategoryState]}  offers={[offersActivId, setOffersActivId]}/>
-            {offers ? offers.map(item => <Offer key={item.id} data = {item} popup={popup}/> ): null}
+            {offers.length > 0 ? offers.map(item => <Offer key={item.id} data = {item} popup={popup}/> ): <p>Доступных товаров нет</p>}
         </div>
         )
 }

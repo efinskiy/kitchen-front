@@ -2,7 +2,7 @@
     margin-top: 25px;
     background-color: #fff;
     width: 100%;
-    height: 73px;
+    height: 80px;
     z-index: 999;
     position: fixed;
     bottom: 0;
@@ -39,4 +39,18 @@
     height: 100px;
     background-color: rgb(255, 255, 255);
     border-radius: 50%;
+}
+
+.buttonTitle{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.buttonWrapper{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
