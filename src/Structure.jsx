@@ -15,7 +15,7 @@ export function Structure(){
     const [kitchenStatus, setKitchenStatus] = useState([])
     const [loadingStatus, setLoadingStatus] = useState(0)
     const [popupState, setPopupState] = useState({state: 0, product: {title: null, id: null, price: null, balance: null}})
-    const [fswitch, setfSwitch] = useState({menu: true, cart: false, history: false})
+    const [fswitch, setfSwitch] = useState({menu: true, cart: false, user: {orders: false, profile: false, active: false}})
     const [categoryState, setCategoryState] = useState();
     
 

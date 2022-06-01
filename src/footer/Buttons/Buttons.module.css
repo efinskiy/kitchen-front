@@ -39,3 +39,16 @@
 .active{
     border: 2px solid var(--green);
 }
+.buttonWrapper{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonTitle{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 300;
+}

@@ -1,0 +1,48 @@
+.settings{
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.header{
+    margin-bottom: 12px;
+}
+
+.block{
+    margin-bottom: 12px;
+}
+
+.settingTitle{
+    font-size: 12px;
+}
+
+.dataInput{
+    touch-action: auto !important;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid var(--yellow);
+    padding: 3px 3px 0px 0px;
+    background-color: inherit;
+    width: 100%;
+    font-size: 18px;
+    user-select: auto;
+    -webkit-tap-highlight-color: var(--yellow);
+}
+
+
+.recoveryLink{
+    margin-top: 24px;
+}
+
+.actionButton{
+    -webkit-tap-highlight-color: var(--yellow);
+    border: none;
+    margin-top: 12px;
+    width: 100%;
+    height: 28px;
+    background-color: var(--yellow);
+    text-align: center;
+    border-radius: 16px;
+    height: 28px;
+    cursor: pointer;
+    color: black;
+}

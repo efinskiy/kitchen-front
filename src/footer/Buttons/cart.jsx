@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function Cart(props) {
     return (
-        <div onClick={() => props.useState({menu: false, cart: true, history: false})}>
+        <div onClick={() => props.useState({menu: false, cart: true, user: {orders: false, profile: false, active: false}})}>
         <button className={classNames(css.cartButton, {[css.active]: props.isActive})}>
         <FontAwesomeIcon icon={faBasketShopping} size="2x" color='black'/>
         </button>

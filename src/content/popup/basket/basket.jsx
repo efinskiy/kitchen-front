@@ -36,7 +36,7 @@ const Basket = (props) => {
                                 () => createOrder(paymentType).then(
                                     json => 
                                         json.response === 200 
-                                        ? getBasket().then(basket => setBasketState(basket)).then(() => setfSwitch({menu: false, cart: false, history: true}))
+                                        ? getBasket().then(basket => setBasketState(basket)).then(() => setfSwitch({menu: false, cart: false, user: {orders: true, profile: false, active: true}}))
                                         : false
                                 )
                             }

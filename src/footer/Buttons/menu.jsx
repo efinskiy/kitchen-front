@@ -1,6 +1,6 @@
 import css from './Buttons.module.css';
 import classNames from 'classnames';
-import { faList } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function Menu(props) {
@@ -11,9 +11,9 @@ export function Menu(props) {
                     {[css.active]: props.isActive})}
                     onClick={
                         () => props.useState(
-                        {menu: true, cart: false, history: false}
+                        {menu: true, cart: false, user: {orders: false, profile: false, active: false}}
                         )}>
-        <FontAwesomeIcon icon={faList} size="lg" color='black'/>
+        <FontAwesomeIcon icon={faBars} size="lg" color='black'/>
         </button>
     );
 }
