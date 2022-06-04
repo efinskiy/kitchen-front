@@ -40,7 +40,7 @@ export function Popup(props){
                     <div className={classNames([css.add], [css.button])}>
                         <p className={css.add_text} onClick={()=> {
                             addToBasket(popup.product.id, quontity)
-                            .then(setPopup({state: 0, product: {title: null, id: null, price: null, balance: null}}))}}>
+                            .then((status) => status.new_amount >= 1 ? setPopup({state: 0, product: {title: null, id: null, price: null, balance: null}}) : false)}}>
                                 Добавить за {(quontity*popup.product.price).toFixed(2)} ₽
                                 </p>
                     </div>

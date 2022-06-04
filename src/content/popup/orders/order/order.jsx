@@ -61,13 +61,13 @@ const Order = (props) => {
             <div className={css.controlButtons}>
                 {
                     order.status !== 4 && order.status !== 3
-                                                        ? <div className={css.btnCancel}> <p className={css.button_text} onClick={() => {cancelOrder(order.id).then(getOrders().then(json => setOrders(json)))}}>Отменить</p> </div>
+                                                        ? <div className={css.btnCancel}> <p className={css.button_text} onClick={() => {cancelOrder(order.id).then((status) => status.code === 200 ? getOrders().then(json => setOrders(json)) : false)}}>Отменить</p> </div>
                                                         : false
                 }
                 {
                     
                     order.is_payed === false && order.status < 1  
-                                        ? <div className={css.btnPay}> <p className={css.button_text} onClick={()=> {getPayLink(order.id).then(json => {window.open(json.url, '_blank')})}}>Оплатить</p> </div>
+                                        ? <div className={css.btnPay}> <p className={css.button_text} onClick={()=> window.open('/api/v1/order/pay?id='+order.id, '_blank')}>Оплатить</p> </div>
                                         : false
                 }
                 

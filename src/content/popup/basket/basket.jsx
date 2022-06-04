@@ -4,13 +4,24 @@ import Payment from './basket.payment/payment';
 import css from './basket.module.css';
 import { getBasket } from '../../../services/basket';
 import { createOrder } from '../../../services/order';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCustomerInfo } from '../../../services/settings';
 
 const Basket = (props) => {
     const {basket, fswitchProp} = props;
     const [fswitch, setfSwitch] = fswitchProp;
     const [basketState, setBasketState] = basket;
     const [paymentType, setPaymentType] = useState(false);
+    const [customerEmail, setCustomerEmail] = useState(undefined);
+
+    useEffect(() => {
+        getCustomerInfo().then(json => {setCustomerEmail(json.email)})
+    }, []);
+
+    const validateEmail = (email) => {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
 
     return (
         <div className={css.order}>
@@ -30,15 +41,20 @@ const Basket = (props) => {
                             <Payment payment={[paymentType, setPaymentType]}/>
                         </div>
                         <hr className={css.hr} />
+                        <div className={css.emailField}>
+                            <p className={css.settingTitle}>Email</p>
+                            <input className={css.dataInput} placeholder="Электронная почта" type='email' value={customerEmail} onChange={(event) => setCustomerEmail(event.target.value)}/> 
+                        </div>
+                        <hr className={css.hr} />
                         <div>
                             <div className={css.button}
                             onClick={
-                                () => createOrder(paymentType).then(
+                                () => validateEmail(customerEmail) ? createOrder(paymentType).then(
                                     json => 
                                         json.response === 200 
                                         ? getBasket().then(basket => setBasketState(basket)).then(() => setfSwitch({menu: false, cart: false, user: {orders: true, profile: false, active: true}}))
                                         : false
-                                )
+                                ) : alert('Пожалуйста, заполните поле Email')
                             }
                             >
                                 <p className={css.button_text}>Создать заказ</p>

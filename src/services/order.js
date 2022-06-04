@@ -34,6 +34,8 @@ export async function getOrders(){
     })
     const json = await request.json()
 
+    // alert(json.orders);
+
     return json;
 }
 

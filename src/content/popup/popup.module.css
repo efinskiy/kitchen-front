@@ -111,10 +111,6 @@
     margin-bottom: 12px;
 }
 
-.quontity {
-    /* width: 90%;
-    margin: 0 auto; */
-}
 
 @keyframes toptodown {
     from {
@@ -208,4 +204,8 @@
     align-items: center;
     justify-content: space-around;
     align-content: center;
+}
+
+.policyInfo{
+    margin: 0px 24px;
 }

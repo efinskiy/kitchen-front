@@ -8,6 +8,8 @@ import Mainwrapper from "./content/mainwrapper/mainwrapper";
 import Loader from "./content/loader/loader";
 import Closed from "./content/closed/closed";
 import { getCategories } from "./services/menu";
+import { getPolicy } from "./services/user";
+import { Policy } from "./content/popup/policy/policy";
 
 
 export function Structure(){ 
@@ -16,6 +18,7 @@ export function Structure(){
     const [loadingStatus, setLoadingStatus] = useState(0)
     const [popupState, setPopupState] = useState({state: 0, product: {title: null, id: null, price: null, balance: null}})
     const [fswitch, setfSwitch] = useState({menu: true, cart: false, user: {orders: false, profile: false, active: false}})
+    const [policyPopup, setPolicyPopup] = useState(false)
     const [categoryState, setCategoryState] = useState();
     
 
@@ -45,6 +48,7 @@ export function Structure(){
             if (kitchenStatus=='available'){
                 getBasket().then(basket => setBasket(basket))
             }
+            getPolicy().then((json) => setPolicyPopup(json.policy));
         }, []
     );
     useEffect(
@@ -64,6 +68,7 @@ export function Structure(){
     ) : kitchenStatus=='available' ? (
         <div>
             <Header/>
+            <Policy state={[policyPopup, setPolicyPopup]}/>
             <Popup state={[popupState, setPopupState]} basket={[basket, setBasket]} />
             <Mainwrapper popup={[popupState, setPopupState]} fswitchProp={[fswitch, setfSwitch]} basket={[basket, setBasket]} category={[categoryState, setCategoryState]}/>
             <Footer basket={basket} switchprops={[fswitch, setfSwitch]}/>
